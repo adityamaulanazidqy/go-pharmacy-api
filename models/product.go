@@ -12,7 +12,6 @@ type Product struct {
 	Stock       int     `json:"stock"`
 }
 
-// Get all products
 func GetAllProducts() ([]Product, error) {
 	rows, err := config.DB.Query("SELECT id, name, description, price, stock FROM products")
 	if err != nil {
@@ -31,7 +30,6 @@ func GetAllProducts() ([]Product, error) {
 	return products, nil
 }
 
-// Create a new product
 func CreateProduct(product *Product) error {
 	query := "INSERT INTO products (name, description, price, stock) VALUES (?, ?, ?, ?)"
 	result, err := config.DB.Exec(query, product.Name, product.Description, product.Price, product.Stock)
@@ -46,14 +44,12 @@ func CreateProduct(product *Product) error {
 	return nil
 }
 
-// Update a product
 func UpdateProduct(product *Product, id string) error {
 	query := "UPDATE products SET name = ?, description = ?, price = ?, stock = ? WHERE id = ?"
 	_, err := config.DB.Exec(query, product.Name, product.Description, product.Price, product.Stock, id)
 	return err
 }
 
-// Delete a product
 func DeleteProduct(id string) error {
 	query := "DELETE FROM products WHERE id = ?"
 	_, err := config.DB.Exec(query, id)
