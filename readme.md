@@ -62,7 +62,6 @@ API RESTful yang dibangun dengan Go (Golang) untuk mengelola produk apotek.
 | :------- | :--------------- | :---------------------------------------------------- |
 | `GET`    | `/product`       | Mengambil semua produk.                               |
 | `POST`   | `/product`       | Menambah product baru.                                |
-| `GET`    | `/product/{id}`  | Mengambil detail product berdasarkan ID.              |
 | `PUT`    | `/product/{id}`  | Memperbarui data product berdasarkan ID.              |
 | `DELETE` | `/product/{ID}`  | Menghapus product berdasarkan ID.                     |
 | `POST`   | `/product/reset` | Menghapus semua product dan mereset ID autoincrement. |
